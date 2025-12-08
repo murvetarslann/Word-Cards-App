@@ -7,7 +7,20 @@
 
 import Foundation
 
-struct Word {
-    let turkish: String
-    let english: String
+// Arama için
+struct WordRequest: Codable {
+    let turkishWordInput: String
 }
+
+// API'den dönen cevap için
+struct WordResponse: Codable {
+    let turkishWord: String
+    let englishWord: String
+}
+
+// API'ye kaydetmek için 
+struct SaveWordRequest: Codable {
+    let turkishWord: String
+    let englishWord: String
+}
+    
