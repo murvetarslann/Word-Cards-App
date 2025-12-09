@@ -80,6 +80,52 @@ class AddWordViewController: UIViewController {
     
     @IBAction func wordSaveButtonClicked(_ sender: Any) {
         
+        guard let tr = turkishWordTextField.text, !tr.isEmpty,
+            let en = englishWordTextField.text, !en.isEmpty else {
+            makeAlert(titleInput: "Missing Information", messageInput: "Fill in both fields!")
+            return
+        }
+        
+        guard let url = URL(string: "http://46.62.233.38:5001/api/Words") else { return }
+    
+        // API ye gönderilecek veriyi hazırlıyoruz (İstek türü ve veri formatı ayarlanıyor)
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        
+        // Modelimi API ye göndermek üzere JSON türüne çeviriyorum
+        let saveModel = SaveWordRequest(turkishWord: tr, englishWord: en)
+        
+        do {
+            request.httpBody = try JSONEncoder().encode(saveModel)
+        } catch {
+            print("Packaging error: \(error)")
+            return
+        }
+        
+        // Arayüzde donma yaşamamak için işlemleri arka planda (Background Thread) başlatıp weak self ile hafıza sızıntısı engelliyorum
+        URLSession.shared.dataTask(with: request) { [weak self] data, response, error in
+            
+            // Arayüz güncellemelerini yapmak için arka plandan Ana Thread'e geçiş yapıyorum
+            DispatchQueue.main.async {
+                
+                // Hata Kontrollerini yapıyorum
+                if let error = error {
+                    print("Kaydetme Hatası: \(error.localizedDescription)")
+                    // İstersen burada bir UIAlertController ile hata mesajı gösterebilirsin
+                    return
+                }
+                
+                // Eğer başarılı bir şekilde VT ye kaydederse ilk ekrana dönmesini sağlıyorum
+                if let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200 || httpResponse.statusCode == 201 {
+                    print("SAVED!")
+                    self?.navigationController?.popViewController(animated: true)
+                    
+                } else {
+                    print("There is a server error. Code: \((response as? HTTPURLResponse)?.statusCode ?? 0)")
+                }
+            }
+        }.resume()
     }
     
     /*
