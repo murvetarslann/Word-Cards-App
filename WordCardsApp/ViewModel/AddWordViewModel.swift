@@ -9,7 +9,7 @@ import Foundation
 
 class AddWordViewModel {
 
-    // Bu değişkenleri tanımlama nedenim ViewModel ile AddWordViewController arasında bir köprü kurmak
+    // Bu değişkenleri tanımlama nedenim ViewModel ile AddWordViewController arasında bir köprü kurmak. Bu sayede View burayı dinler.
     var onTranslationSuccess: ((String) -> Void)?
     var onSaveSuccess: (() -> Void)? // Kaydetme işleminde tetiklenir
     var onError: ((String) -> Void)? // Hata olduğu zaman tetiklenir

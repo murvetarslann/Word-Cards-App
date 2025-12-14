@@ -103,7 +103,38 @@ class WordService {
         }.resume()
     }
     
-    
+    func fetchAllWords(completion: @escaping (Result<[Word], WordError>) -> Void) {
+        
+        guard let url = APIConstants.getURL(for: APIConstants.Endpoints.saveWord) else {
+            completion(.failure(.invalidURL))
+            return
+        }
+        
+        var request = URLRequest(url: url)
+        request.httpMethod = "GET"
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        
+        URLSession.shared.dataTask(with: request) { data, response, error in
+            
+            if error != nil {
+                completion(.failure(.serverError))
+                return
+            }
+            
+            guard let data = data else {
+                completion(.failure(.unknownError))
+                return
+            }
+            
+            do {
+                let words = try JSONDecoder().decode([Word].self, from: data)
+                completion(.success(words))
+            } catch {
+                print("Decoding Hatası: \(error)")
+                completion(.failure(.decodingError))
+            }
+        }.resume()
+    }
     
 }
 
@@ -114,5 +145,4 @@ class WordService {
          case success(WordResponse)
          case failure(WordError)  
      }
- 
 */

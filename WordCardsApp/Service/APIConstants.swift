@@ -10,7 +10,7 @@ import Foundation
 struct APIConstants {
     
     // Ana sunucu adresimi tanımlıyorum
-    static let baseURL = "http://46.62.233.38:5001"
+    static let baseURL = "http://95.216.164.46:5001"
     
     // Sunucudaki diğer bağlantı noktalarım
     struct Endpoints {

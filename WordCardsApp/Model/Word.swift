@@ -23,4 +23,10 @@ struct SaveWordRequest: Codable {
     let turkishWord: String
     let englishWord: String
 }
-    
+
+// Kaydedilen kelimeler için
+struct Word: Codable {
+    let id: Int?
+    let turkishWord: String
+    let englishWord: String
+}
