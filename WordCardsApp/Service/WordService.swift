@@ -136,6 +136,45 @@ class WordService {
         }.resume()
     }
     
+    func deleteWord(id: Int, completion: @escaping (Result<Void, WordError>) -> Void) {
+            
+        guard let baseURL = APIConstants.getURL(for: APIConstants.Endpoints.saveWord) else {
+            completion(.failure(.invalidURL))
+            return
+        }
+        let url = baseURL.appendingPathComponent("\(id)")
+        
+        var request = URLRequest(url: url)
+        request.httpMethod = "DELETE"
+            
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+            
+        URLSession.shared.dataTask(with: request) { data, response, error in
+                
+            if let error = error {
+                completion(.failure(.serverError))
+                return
+            }
+                
+            if let httpResponse = response as? HTTPURLResponse {
+                
+                if (200...299).contains(httpResponse.statusCode) { // 2 ile başlayan başarılı, 4 ile başlayan benim hatam, 5 ile başlayan ise sunucu hatası olur
+                    completion(.success(()))
+                } else {
+
+                    if let data = data, let errorText = String(data: data, encoding: .utf8) {
+                        print("Sunucu Hata Mesajı: \(errorText)")
+                    }
+                    completion(.failure(.unknownError))
+                }
+            } else {
+                completion(.failure(.unknownError))
+            }
+                
+                
+        }.resume()
+    }
+    
 }
 
 

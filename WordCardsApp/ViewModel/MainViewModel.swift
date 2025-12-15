@@ -38,6 +38,26 @@ class MainViewModel {
         guard index >= 0 && index < words.count else { return nil } // İstenilen satırdaki elemanı getirmeden önce elemena sayısını kontrol eder (çökmeyi engelliyoruz)
         return words[index]
     }
+    
+    func removeWord(at index: Int) {
+        
+        guard let wordToDelete = word(at: index), let id = wordToDelete.id else { return }
+        
+        onLoading?(true)
+        
+        WordService.shared.deleteWord(id: id) { [weak self] result in
+            self?.onLoading?(false)
+            
+            switch result {
+            case .success:
+                self?.words.remove(at: index)
+                self?.onSuccess?()
+                
+            case .failure(let error):
+                self?.onError?(error.localizedDescription)
+            }
+        }
+    }
 }
 
-// Bu sınıfın amacı words disinini canlı tutarak veriyi gidip getirir. Veri değiştiğinde View Controller ile iletişime geçerek ona haber verir
+// Bu sınıfın amacı words dizinini canlı tutarak veriyi gidip getirir. Veri değiştiğinde View Controller ile iletişime geçerek ona haber verir
