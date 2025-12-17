@@ -10,7 +10,13 @@ import UIKit
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
+    // Dönme kuralını hafızamızda tutuyoruz
+    static var orientationLock = UIInterfaceOrientationMask.portrait
 
+    // Ekranlar her çevrilmeye çalıştığında bu fonksiyona "İzin var mı?" diye sorulup, biz de yukarıdaki kilit ne diyorsa onu cevap döneriz
+    func application(_ application: UIApplication, supportedInterfaceOrientationsFor window: UIWindow?) -> UIInterfaceOrientationMask {
+        return AppDelegate.orientationLock
+    }
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.

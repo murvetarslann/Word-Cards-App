@@ -16,14 +16,44 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        navigationController?.navigationBar.topItem?.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.add, target: self, action: #selector(addWordButtonClicked))
+        navigationItem.leftBarButtonItem = UIBarButtonItem(
+            image: UIImage(systemName: "plus"),
+            style: .done,
+            target: self,
+            action: #selector(addWordButtonClicked)
+        )
+        
+        navigationItem.rightBarButtonItem = UIBarButtonItem(
+            image: UIImage(systemName: "shuffle"),
+            style: .done,
+            target: self,
+            action: #selector(randomButtonClicked)
+        )
         
         setupTableView()
         setupBindings()
     }
     
-    override func viewWillAppear(_ animated: Bool) { // Sayfa her yeniden açıldığında (görüldüğünde), kelime kaydettikten sonra tablonun yenilenmesi
+    // Bu ekran sadece dik durabilsin
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        return .portrait
+    }
+    
+    // Bu ekran açılırken tercih ettiğimiz yön (Dik)
+    override var preferredInterfaceOrientationForPresentation: UIInterfaceOrientation {
+        return .portrait
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        // Sayfa her yeniden açıldığında (görüldüğünde), kelime kaydettikten sonra tablonun yenilenmesi
         viewModel.loadWords()
+        
+        // BUNU EKLE: Her ihtimale karşı burası hep DİK kalsın
+        AppDelegate.orientationLock = .portrait
+        
+        // Zorla dik tut
+        let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene
+        windowScene?.requestGeometryUpdate(.iOS(interfaceOrientations: .portrait))
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -92,9 +122,29 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
     
     
-    // Kart Kısmı
-    @IBAction func switchingToRandomCardButtonClicked(_ sender: Any) {
+    // Random kart kısmına geçmek için butona bastığımızda elimizdeki kelime listesini CardViewController ekranına gönderiyoruz
+    @IBAction func randomButtonClicked() {
         
+        guard !viewModel.words.isEmpty else {
+            makeAlert(title: "Warning!", message: "The list is empty. First, add your words!")
+            return
+        }
+        
+        AppDelegate.orientationLock = .landscape
+        
+        // Butona bastıktan sonraki gideceği hedef ekranı yaratıyoruz
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        
+        if let cardViewController = storyboard.instantiateViewController(withIdentifier: "toCardViewController") as? CardViewController {
+            
+            let cardViewModel = CardViewModel(mixWordList: viewModel.words)
+            cardViewController.viewModel = cardViewModel
+            
+            cardViewController.modalPresentationStyle = .fullScreen
+            cardViewController.modalTransitionStyle = .flipHorizontal
+            
+            self.present(cardViewController, animated: true, completion: nil)
+        }
     }
     
     

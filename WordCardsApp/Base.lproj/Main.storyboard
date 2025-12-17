@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="gxQ-YN-h1I">
-                                <rect key="frame" x="16" y="171" width="361" height="613"/>
+                                <rect key="frame" x="16" y="172" width="361" height="612"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="WordCell" textLabel="pbn-oa-y7O" detailTextLabel="WYz-Ol-fgF" style="IBUITableViewCellStyleValue1" id="Vn2-57-nnZ">
@@ -50,25 +50,17 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="gxQ-YN-h1I" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="9" id="8aK-jx-tpw"/>
-                            <constraint firstItem="gxQ-YN-h1I" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="JOf-mf-qyp"/>
-                            <constraint firstItem="gxQ-YN-h1I" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="Keg-k1-6sd"/>
-                            <constraint firstItem="gxQ-YN-h1I" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="xP5-Um-dCf"/>
+                            <constraint firstItem="gxQ-YN-h1I" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="Iba-G1-cna"/>
+                            <constraint firstItem="gxQ-YN-h1I" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="Nlr-96-r0l"/>
+                            <constraint firstItem="gxQ-YN-h1I" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="10" id="aSk-hv-xLo"/>
+                            <constraint firstItem="gxQ-YN-h1I" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="rmh-DM-MiA"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="N43-wM-aSj">
                         <nil key="title"/>
-                        <barButtonItem key="rightBarButtonItem" style="plain" id="W8D-6R-J2I">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="x03-ev-lJE">
-                                <rect key="frame" x="210" y="5" width="167" height="34.333333333333336"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="Random Karta Geç"/>
-                                <connections>
-                                    <action selector="switchingToRandomCardButtonClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="JY7-G8-Bkd"/>
-                                </connections>
-                            </button>
-                        </barButtonItem>
+                        <centerItemGroups>
+                            <barButtonItemGroup customizationDisposition="fixed" id="4N4-vy-kdY"/>
+                        </centerItemGroups>
                     </navigationItem>
                     <connections>
                         <outlet property="wordsTableView" destination="gxQ-YN-h1I" id="QGg-zU-woW"/>
@@ -78,6 +70,48 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1052.6717557251909" y="-27.464788732394368"/>
+        </scene>
+        <!--Card View Controller-->
+        <scene sceneID="QgC-cN-gCJ">
+            <objects>
+                <viewController storyboardIdentifier="toCardViewController" id="RLb-Xd-mJD" customClass="CardViewController" customModule="WordCardsApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="cfS-Sx-j89">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1oY-uk-PeK">
+                                <rect key="frame" x="-161" y="30" width="715" height="792"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Example" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vvD-fM-ctm">
+                                        <rect key="frame" x="85" y="130" width="567" height="36"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="714" id="rKl-Bs-i0c"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="t1Z-Vi-5lH"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="1oY-uk-PeK" firstAttribute="centerX" secondItem="cfS-Sx-j89" secondAttribute="centerX" id="1se-HL-k8c"/>
+                            <constraint firstAttribute="bottom" secondItem="1oY-uk-PeK" secondAttribute="bottom" constant="30" id="Ppq-Js-DBH"/>
+                            <constraint firstItem="1oY-uk-PeK" firstAttribute="top" secondItem="cfS-Sx-j89" secondAttribute="top" constant="30" id="bAo-Zb-HhH"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="cardView" destination="1oY-uk-PeK" id="MJc-Nc-zsB"/>
+                        <outlet property="wordLabel" destination="vvD-fM-ctm" id="5BX-Aj-Xj5"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nSV-1c-G8R" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2635.211267605634" y="-28.244274809160306"/>
         </scene>
         <!--Add Word View Controller-->
         <scene sceneID="NOa-Wr-3SZ">
