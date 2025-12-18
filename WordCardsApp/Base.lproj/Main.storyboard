@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="23727" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="YhW-xS-cae">
-    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <device id="retina6_12" orientation="landscape" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23721"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -13,18 +13,18 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="WordCardsApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <rect key="frame" x="0.0" y="0.0" width="852" height="393"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="gxQ-YN-h1I">
-                                <rect key="frame" x="16" y="172" width="361" height="612"/>
+                                <rect key="frame" x="79" y="113" width="694" height="225"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="WordCell" textLabel="pbn-oa-y7O" detailTextLabel="WYz-Ol-fgF" style="IBUITableViewCellStyleValue1" id="Vn2-57-nnZ">
-                                        <rect key="frame" x="0.0" y="50" width="361" height="43.666667938232422"/>
+                                        <rect key="frame" x="0.0" y="50" width="694" height="43.666667938232422"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Vn2-57-nnZ" id="vs8-tp-Kd5">
-                                            <rect key="frame" x="0.0" y="0.0" width="361" height="43.666667938232422"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="694" height="43.666667938232422"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="pbn-oa-y7O">
@@ -35,7 +35,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="WYz-Ol-fgF">
-                                                    <rect key="frame" x="308.33333333333331" y="15" width="32.666666666666664" height="14.333333333333334"/>
+                                                    <rect key="frame" x="641.33333333333337" y="15" width="32.666666666666664" height="14.333333333333334"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="0.0"/>
                                                     <nil key="textColor"/>
@@ -76,32 +76,49 @@
             <objects>
                 <viewController storyboardIdentifier="toCardViewController" id="RLb-Xd-mJD" customClass="CardViewController" customModule="WordCardsApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="cfS-Sx-j89">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <rect key="frame" x="0.0" y="0.0" width="852" height="393"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1oY-uk-PeK">
-                                <rect key="frame" x="-161" y="30" width="715" height="792"/>
+                                <rect key="frame" x="69" y="30" width="714" height="333"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Example" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vvD-fM-ctm">
-                                        <rect key="frame" x="85" y="130" width="567" height="36"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Example" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vvD-fM-ctm">
+                                        <rect key="frame" x="302" y="148.66666666666666" width="110.33333333333331" height="36"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gPd-9L-Nvi">
+                                        <rect key="frame" x="334" y="38.666666666666629" width="46" height="28.000000000000796"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="46" id="MaA-NP-dak"/>
+                                        </constraints>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" image="xmark.circle.fill" catalog="system">
+                                            <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" configurationType="pointSize" pointSize="40"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <action selector="closeButtonClicked:" destination="RLb-Xd-mJD" eventType="touchUpInside" id="Uqo-wC-Zd4"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="714" id="rKl-Bs-i0c"/>
+                                    <constraint firstItem="gPd-9L-Nvi" firstAttribute="top" secondItem="1oY-uk-PeK" secondAttribute="top" constant="38.666666666666629" id="Cmi-8I-9wF"/>
+                                    <constraint firstItem="vvD-fM-ctm" firstAttribute="centerY" secondItem="1oY-uk-PeK" secondAttribute="centerY" id="XYg-LR-TSq"/>
+                                    <constraint firstItem="vvD-fM-ctm" firstAttribute="top" secondItem="gPd-9L-Nvi" secondAttribute="bottom" constant="81.999999999999233" id="fFk-se-sqp"/>
+                                    <constraint firstItem="gPd-9L-Nvi" firstAttribute="centerX" secondItem="vvD-fM-ctm" secondAttribute="centerX" id="nfn-Wg-oqd"/>
+                                    <constraint firstItem="gPd-9L-Nvi" firstAttribute="centerX" secondItem="1oY-uk-PeK" secondAttribute="centerX" id="wfd-9D-k09"/>
                                 </constraints>
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="t1Z-Vi-5lH"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="1oY-uk-PeK" firstAttribute="centerX" secondItem="cfS-Sx-j89" secondAttribute="centerX" id="1se-HL-k8c"/>
-                            <constraint firstAttribute="bottom" secondItem="1oY-uk-PeK" secondAttribute="bottom" constant="30" id="Ppq-Js-DBH"/>
-                            <constraint firstItem="1oY-uk-PeK" firstAttribute="top" secondItem="cfS-Sx-j89" secondAttribute="top" constant="30" id="bAo-Zb-HhH"/>
+                            <constraint firstItem="1oY-uk-PeK" firstAttribute="centerX" secondItem="cfS-Sx-j89" secondAttribute="centerX" id="3xy-M6-IuE"/>
+                            <constraint firstItem="1oY-uk-PeK" firstAttribute="centerY" secondItem="cfS-Sx-j89" secondAttribute="centerY" id="4Us-Fe-adc"/>
+                            <constraint firstItem="1oY-uk-PeK" firstAttribute="top" secondItem="cfS-Sx-j89" secondAttribute="topMargin" constant="-29" id="5Eb-wZ-pgC"/>
+                            <constraint firstItem="1oY-uk-PeK" firstAttribute="leading" secondItem="t1Z-Vi-5lH" secondAttribute="leading" constant="10" id="Jcg-b2-NXO"/>
                         </constraints>
                     </view>
                     <connections>
@@ -118,27 +135,27 @@
             <objects>
                 <viewController id="pYd-ge-lfR" customClass="AddWordViewController" customModule="WordCardsApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Oo6-pl-Lbw">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <rect key="frame" x="0.0" y="0.0" width="852" height="393"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9Rm-yn-MOe">
-                                <rect key="frame" x="50" y="252" width="302" height="34"/>
+                                <rect key="frame" x="109" y="193" width="302" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8Zf-wx-xjk">
-                                <rect key="frame" x="50" y="422" width="302" height="34"/>
+                                <rect key="frame" x="109" y="363" width="302" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Turkish Vocabulary" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DEh-Nr-yaI">
-                                <rect key="frame" x="91" y="211" width="220" height="33"/>
+                                <rect key="frame" x="150" y="152" width="220" height="33"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="27"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="English Meaning" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HE8-sN-zg8">
-                                <rect key="frame" x="105" y="381" width="192" height="33"/>
+                                <rect key="frame" x="164" y="322" width="192" height="33"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="27"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -199,7 +216,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="YhW-xS-cae" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="teO-0J-JGO">
-                        <rect key="frame" x="0.0" y="118" width="393" height="44"/>
+                        <rect key="frame" x="0.0" y="59" width="852" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -213,6 +230,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="xmark.circle.fill" catalog="system" width="128" height="123"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

@@ -42,5 +42,4 @@ class CardViewModel {
  
  + shuffled() --> fonksiyonu diziyi rastgele sıralar (karıştırır)
  + init içerisinde yapılan şeyler  "Random Karta Geç" butonuna her basıldığında olacak şeylerdir. (Kelimeler her seferinde farklı bir sırayla gelecek)
- 
 */

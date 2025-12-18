@@ -48,7 +48,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         // Sayfa her yeniden açıldığında (görüldüğünde), kelime kaydettikten sonra tablonun yenilenmesi
         viewModel.loadWords()
         
-        // BUNU EKLE: Her ihtimale karşı burası hep DİK kalsın
+        //  Her ihtimale karşı burası hep DİK kalsın
         AppDelegate.orientationLock = .portrait
         
         // Zorla dik tut
