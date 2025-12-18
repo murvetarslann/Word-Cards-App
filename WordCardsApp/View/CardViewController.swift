@@ -25,6 +25,9 @@ class CardViewController: UIViewController {
         cardView.layer.shadowOffset = CGSize(width: 0, height: 10)
         cardView.layer.shadowRadius = 15
         
+        // Metini siyahda sabitliyoruz
+        wordLabel.textColor = .black
+        
         if let word = viewModel.getCurrentWord() {
             wordLabel.text = word.englishWord
         }

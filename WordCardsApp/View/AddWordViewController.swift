@@ -19,6 +19,10 @@ class AddWordViewController: UIViewController {
         super.viewDidLoad()
         
         setupBindings()
+        
+        // Ekrana tıklandığını algılayan sensör
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(hideKeyboard))
+        view.addGestureRecognizer(tapGesture)
     }
     
     func makeAlert(titleInput: String, messageInput: String) {
@@ -28,6 +32,10 @@ class AddWordViewController: UIViewController {
         self.present(alert, animated: true, completion: nil)
     }
     
+    @objc func hideKeyboard() {
+        // Bu sihirli komut, ekranın neresinde klavye açıksa onu kapatır.
+        view.endEditing(true)
+    }
     
     // ViewModel'den gelen olayları dinleyip çalışacak kodlar
     private func setupBindings() {
