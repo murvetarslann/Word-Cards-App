@@ -60,6 +60,17 @@ class AddWordViewModel {
             return
         }
         
+        let isDuplicate = WordService.shared.currentWords.contains { word in
+            // Büyük-küçük harf duyarlılığını kaldırıp o şekilde  kontrol ediyoruz
+            return word.englishWord.lowercased() == en.lowercased()
+        }
+        
+        if isDuplicate {
+            // Aynı kelimeden var ise uyarı veriyoruz
+            onError?("This word is already in your list!")
+            return
+        }
+        
         let saveModel = SaveWordRequest(turkishWord: tr, englishWord: en)
         
         onLoading?(true)
@@ -69,7 +80,6 @@ class AddWordViewModel {
             
             switch result {
             case .success:
-                // Başarı! View'a "Tamamdır" de.
                 self?.onSaveSuccess?()
                 
             case .failure(let error):

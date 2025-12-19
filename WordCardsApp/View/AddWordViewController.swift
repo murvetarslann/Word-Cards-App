@@ -33,7 +33,6 @@ class AddWordViewController: UIViewController {
     }
     
     @objc func hideKeyboard() {
-        // Bu sihirli komut, ekranın neresinde klavye açıksa onu kapatır.
         view.endEditing(true)
     }
     

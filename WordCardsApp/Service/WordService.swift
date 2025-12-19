@@ -20,6 +20,8 @@ class WordService {
     
     static let shared = WordService() // Her dosya içerisinde WordService'e ulaşmak için tek bir instance oluşturduk
     
+    var currentWords: [Word] = [] // Kelimeleri tuttuğumuz
+    
     private init() {} // Bu sınıftan nesne üretmek sadece bu sınıfa ait olsun kuralı koyduk
     
     func fetchPreview(text: String, completion: @escaping (Result<WordResponse, WordError>) -> Void) { // Burada Result kullanarak hata yapma riskini 0 a indiriyoruz
@@ -128,6 +130,7 @@ class WordService {
             
             do {
                 let words = try JSONDecoder().decode([Word].self, from: data)
+                self.currentWords = words // Gelen kelimeleri hafızaya kaydediyoruz
                 completion(.success(words))
             } catch {
                 print("Decoding Hatası: \(error)")
@@ -151,7 +154,7 @@ class WordService {
             
         URLSession.shared.dataTask(with: request) { data, response, error in
                 
-            if let error = error {
+            if error != nil {
                 completion(.failure(.serverError))
                 return
             }
