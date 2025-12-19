@@ -11,3 +11,8 @@ Swift UIKit ile MVVM yapısını ve API kullanarak geliştirdiğim, ingilizce ke
 Eğer kelime zaten listede varsa, API'ye gereksiz istek atılmaz ve kullanıcı "Bu kelime zaten listenizde mevcut" şeklinde uyarılır.
 - **Otomatik Düzenleme** ile kullanıcı kelimeyi yazarken sonuna yanlışlıkla boşluk bıraksa bile (Trim), sistem bunu algılar ve temizleyerek kaydeder.
 - **Karanlık Mod** uyumu ile uygulama, cihazın tema ayarlarına uyum sağlar. Kartların üzerindeki metinler, arka plan rengine göre (siyah/beyaz) otomatik olarak görünürlüğünü korur.
+
+
+<p align="center">
+  <img src="Screenshot/demo.gif" width="250" title="Uygulama Demosu">
+</p>
